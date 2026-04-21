@@ -1,8 +1,8 @@
 const Navbar = () => {
   return (
     <>
-      <nav className="md:hidden"></nav>
-      <nav className="flex"></nav>
+      <nav className="hidden md:flex "> <p>navbar</p></nav>
+      <nav className="md:hidden"> <p>navbar</p></nav>
     </>
     
   )
