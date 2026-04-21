@@ -1,11 +1,7 @@
+import { router } from "./router/router";
 
-function App() {
-
-  return (
-    <div>
-      <h1>job-find</h1>
-    </div>
-  )
+export function App() {
+  return <>{router}</>;
 }
 
-export default App
+export default App;
