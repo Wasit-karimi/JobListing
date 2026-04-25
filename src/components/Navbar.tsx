@@ -47,15 +47,15 @@ const Navbar = () => {
       {/* desktop nav */}
       <nav
         className={cn(
-          "shadow-md shadow-blue-200 hidden md:flex justify-between items-center px-10",
-          scrolled ? "h-16 bg-white/75" : "h-18",
+          "shadow-md shadow-blue-200 hidden md:flex justify-between items-center px-15",
+          scrolled ? "h-16 bg-white/75 backdrop-blur-lg border-b border-t-gray-200" : "h-18",
         )}
       >
         {" "}
         <a href="#" className="flex">
           <img src="/logo.svg" alt="logo" />
         </a>{" "}
-        <ul className="flex gap-3">{navlinks}</ul>
+        <ul className="flex gap-5">{navlinks}</ul>
       </nav>
 
       {/* mobile nav */}

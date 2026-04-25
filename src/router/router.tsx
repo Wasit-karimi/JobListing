@@ -6,32 +6,33 @@ import Jobs from "../pages/Jobs";
 import JobDetails from "../pages/JobDetails";
 import About from "../pages/About";
 
-export const router = createBrowserRouter([
+export const router =  createBrowserRouter([
     {
-        path: "/",
-        element: <MainLayout />,
-        errorElement: <NotFound />,
-        children: [
-            {
-                index: true,
-                element: <Home />
-            },
-            {
-                path: 'jobs',
-                element: <Jobs />
-            },
-            {
-                path: 'Jobs/:id',
-                element: <JobDetails />
-            },
-            {
-                path: 'about',
-                element: <About />
-            },
-            {
-                path: '*',
-                element: <NotFound />
-            }
-        ]
-    }
-]);
+      path: "/",
+      element: <MainLayout />,
+      errorElement: <NotFound />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "jobs",
+          element: <Jobs />,
+        },
+        {
+          path: "jobs/:id",
+          element: <JobDetails />,
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
+        },
+      ],
+    },
+  ]);
+ 
