@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 import { jobQuery } from "../api/job"
+import NotFound from "./NotFound"
 
 const JobDetails = () => {
 
@@ -8,7 +9,7 @@ const JobDetails = () => {
 
   const {data} = useQuery(jobQuery(id!))
 
-  if(!data) return <div>error</div>
+  if(!data) return <NotFound />
 
   return (
     <div>{data}</div>

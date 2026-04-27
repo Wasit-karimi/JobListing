@@ -3,12 +3,12 @@ import { jobQuery } from "../api/job";
 
 export const jobLoader =
   (queryClient: QueryClient) =>
-  async ({ params }: { params: {_id: string} }) => {
-    const { _id } = params;
-    if (!_id) throw new Error("No job exists");
+  async ({ params }: { params: {id: string} }) => {
+    const { id } = params;
+    if (!id) throw new Error("No job exists");
 
     return (
-      queryClient.getQueryData(["job", _id]) ??
-      (await queryClient.fetchQuery(jobQuery(_id)))
+      queryClient.getQueryData(["job", id]) ??
+      (await queryClient.fetchQuery(jobQuery(id)))
     );
   };
