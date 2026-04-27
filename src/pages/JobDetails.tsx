@@ -9,16 +9,37 @@ const JobDetails = () => {
   if (!job) return <NotFound />;
 
   return (
-    <div>
-      <h1 className="font-bold text-lg flex flex-col gap-5">{job.title}</h1>
-      <p>{job.descriptionBreakdown.oneSentenceJobSummary}</p>
-      <p><strong>Type : </strong>{job.descriptionBreakdown.employmentType}</p>
-      <p><strong>Work Model : </strong>{job.descriptionBreakdown.workModel}</p>
-      <p><strong>Salary : </strong> ${job.descriptionBreakdown.salaryRangeMinYearly} - ${job.descriptionBreakdown.salaryRangeMaxYearly} per year</p>
-      <p><strong>Location : </strong>{job.locationAddress}</p>
-      <button className="btn-primary"><a href={job.url} target="_blank">Apply</a></button>
-      <br />
-      <button onClick={() => navigate("/jobs")} className="btn-primary">Jobs</button>
+    <div className="w-full lg:w-[50%] md:w-[90%] shadow-md hover:shadow-lg hover:shadow-blue-300 transition-all duration-300 rounded-md cursor-pointer ">
+      <div className="px-3 py-1 border border-gray-300 hover:border-blue-300 transition-all duration-300 rounded-md">
+        <h1 className="font-bold text-lg mx-auto text-center my-2">{job.title}</h1>
+        <p className="text-justify">{job.descriptionBreakdown.oneSentenceJobSummary}</p>
+        <p className="my-1">
+          <strong>Type : </strong>
+          {job.descriptionBreakdown.employmentType}
+        </p>
+        <p>
+          <strong>Work Model : </strong>
+          {job.descriptionBreakdown.workModel}
+        </p>
+        <p className="my-1">
+          <strong>Salary : </strong> $
+          {job.descriptionBreakdown.salaryRangeMinYearly} - $
+          {job.descriptionBreakdown.salaryRangeMaxYearly} per year
+        </p>
+        <p className="mb-1">
+          <strong>Location : </strong>
+          {job.locationAddress}
+        </p>
+        <div className="w-full flex justify-center gap-3 my-2">
+        <button className="btn-primary">
+          <a href={job.url} target="_blank">
+            Apply
+          </a>
+        </button>
+        <button onClick={() => navigate("/jobs")} className="btn-primary">
+          Jobs
+        </button></div>
+      </div>
     </div>
   );
 };
