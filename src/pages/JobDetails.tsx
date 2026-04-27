@@ -1,19 +1,21 @@
-import { useQuery } from "@tanstack/react-query"
-import { useParams } from "react-router-dom"
-import { jobQuery } from "../api/job"
-import NotFound from "./NotFound"
+import { useLoaderData, useNavigate } from "react-router-dom";
+import NotFound from "./NotFound";
 
 const JobDetails = () => {
+  const navigate = useNavigate();
 
-  const {id} = useParams()
+  const job = useLoaderData();
 
-  const {data} = useQuery(jobQuery(id!))
-
-  if(!data) return <NotFound />
+  if (!job) return <NotFound />;
 
   return (
-    <div>{data}</div>
-  )
-}
+    <div>
+      <h1 className="font-bold text-lg flex flex-col gap-5">{job.title}</h1>
+      <p>{job.descriptionBreakdown.oneSentnceJobSummary}</p>
+      <button onClick={() => navigate(`${job.url}`)}>Apply</button><br />
+      <button onClick={() => navigate("/jobs")}>Jobs</button>
+    </div>
+  );
+};
 
-export default JobDetails
+export default JobDetails;

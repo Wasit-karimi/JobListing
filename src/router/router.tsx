@@ -6,7 +6,7 @@ import Jobs from "../pages/Jobs";
 import JobDetails from "../pages/JobDetails";
 import About from "../pages/About";
 import { queryClient } from "../lib/queryClient";
-// import { jobLoader } from "./jobLoader";
+import { jobLoader } from "./jobLoader";
 import { jobsLoader } from "./jobsLoader";
 
 export const router =  createBrowserRouter([
@@ -29,7 +29,7 @@ export const router =  createBrowserRouter([
         {
           path: "jobs/:id",
           element: <JobDetails />,
-          // loader: jobLoader(queryClient),
+          loader: jobLoader(queryClient),
           errorElement: <NotFound />
         },
         {
