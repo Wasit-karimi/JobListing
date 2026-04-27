@@ -8,11 +8,15 @@ const Home = () => {
 
   return (
     <div>
-      {data?.map((job: Job) => (
-        <Link to={`/jobs/${job._id}`} key={job.title}>
-          {job.title}
-        </Link>
-      ))}
+      <ul className="list-decimal">
+        {data?.map((job: Job) => (
+          <li className="hover:text-blue-600 hover:translate-x-1 transition-all duration-300">
+            <Link to={`/jobs/${job._id}`} key={job.title}>
+              {job.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
