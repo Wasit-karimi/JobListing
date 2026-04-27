@@ -1,16 +1,14 @@
 @import "tailwindcss";
 
-
 @layer base {
-    h1{
-        font-size: 18px;
-        font-weight: 500;
-    }
+  h1 {
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
 
 @layer components {
-    .btn-primary {
-        @apply bg-linear-to-r from-white to-blue-400 flex gap-1
-         justify-center items-center px-2 py-1 rounded cursor-pointer hover:shadow-md hover:shadow-blue-300 transition-all duration-300
-    }
+  .btn-primary {
+    @apply bg-linear-to-r from-white to-blue-400 flex gap-1 justify-center items-center px-2 py-1 rounded cursor-pointer hover:shadow-md hover:shadow-blue-300 transition-all duration-300;
+  }
 }
