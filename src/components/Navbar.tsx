@@ -48,7 +48,9 @@ const Navbar = () => {
       <nav
         className={cn(
           "shadow-md shadow-blue-200 hidden md:flex justify-between items-center px-15",
-          scrolled ? "h-16 bg-white/75 backdrop-blur-lg border-b border-t-gray-200" : "h-18",
+          scrolled
+            ? "h-16 bg-white/75 backdrop-blur-lg border-b border-gray-300"
+            : "h-18",
         )}
       >
         {" "}
@@ -59,7 +61,7 @@ const Navbar = () => {
       </nav>
 
       {/* mobile nav */}
-      <nav className="md:hidden relative h-18 flex justify-between px-5">
+      <nav className="md:hidden relative h-18 flex justify-between px-5 border-b border-gray-300 shadow-md shadow-blue-200">
         {" "}
         <a href="#" className="flex">
           <img src="/logo.svg" alt="logo" className="w-37" />
@@ -84,7 +86,6 @@ const Navbar = () => {
             {" "}
             <IoMdClose size={24} />{" "}
           </button>
-
           {navlinks}
         </ul>
       </nav>

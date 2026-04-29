@@ -6,7 +6,7 @@ const MainLayout = () => {
   return (
     <main className="w-full min-h-screen flex flex-col justify-between">
       <Navbar />
-      <section className="w-full h-full px-30  mx-auto flex flex-col justify-between items-center">
+      <section className="w-[90%] h-full mx-auto flex flex-col justify-between items-center">
         <Outlet />
       </section>
       <Footer />

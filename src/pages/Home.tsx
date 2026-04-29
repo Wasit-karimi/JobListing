@@ -9,7 +9,6 @@ const Home = () => {
   useGSAP(() => {
     gsap.set(".fall", { y: -100, opacity: 0 });
     gsap.set(".fade", { opacity: 0 });
-    gsap.set(".rise", { y: 100, opacity: 0 });
 
     const tl = gsap.timeline();
 
@@ -29,29 +28,18 @@ const Home = () => {
       },
       "-=0.5",
     );
-
-    tl.to(
-      ".rise",
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power1.inOut",
-      },
-      "<",
-    );
   }, []);
   return (
-    <section className="w-full h-100 flex flex-col justify-center items-center">
-      <h1 className="font-bold text-2xl capitalize fall">
+    <section className="w-full h-100 flex flex-col justify-center items-center gap-4">
+      <h1 className="font-bold text-2xl capitalize z-0 fall">
         Find your next job faster
       </h1>
-      <p className="my-2 fade">
+      <p className="fade text-center">
         Browse thousands of oppurtunities in tech, design, and more
       </p>
       <button
         onClick={() => navigate("/jobs")}
-        className="btn-primary rise"
+        className="btn-primary fade"
       >
         Explore Jobs <LuArrowRight />
       </button>
