@@ -7,5 +7,6 @@ export const fetchJobs = async () => {
 
 export const jobsQuery = {
     queryKey: ["jobs"],
-    queryFn: fetchJobs
+    queryFn: fetchJobs,
+    staleTime: 1000 * 60 * 60 
 }
