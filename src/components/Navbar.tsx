@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { LuMenu } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -8,12 +8,32 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const btnRef = useRef<HTMLButtonElement | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
     };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+
+      if (
+        navRef.current &&
+        !navRef.current.contains(target) &&
+        btnRef.current &&
+        !btnRef.current.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   const links = [
@@ -36,7 +56,7 @@ const Navbar = () => {
       key={link.name}
       className="hover:text-blue-600 font-semibold duration-500 cursor-pointer"
     >
-      <Link to={link.path} onClick={() => setIsOpen(!isOpen)}>
+      <Link to={link.path} onClick={(prev) => setIsOpen(!prev)}>
         {link.name}
       </Link>
     </li>
@@ -61,7 +81,10 @@ const Navbar = () => {
       </nav>
 
       {/* mobile nav */}
-      <nav className="md:hidden w-full relative h-18 flex justify-between px-5 border-b border-gray-300 shadow-md shadow-blue-200">
+      <nav
+        ref={navRef}
+        className="md:hidden w-full relative h-18 flex justify-between px-5 border-b border-gray-300 shadow-md shadow-blue-200 mobileNav"
+      >
         {" "}
         <a href="#" className="flex">
           <img src="/logo.svg" alt="logo" className="w-37" />
@@ -76,11 +99,12 @@ const Navbar = () => {
         <ul
           className={cn(
             "bg-blue-300 fixed top-0 -right-52 w-52 h-screen flex flex-col justify-center items-center gap-5 transition-all duration-500",
-            isOpen ? "right-0" : "-right-52" 
+            isOpen ? "right-0" : "-right-52",
           )}
         >
           <button
             onClick={() => setIsOpen(!isOpen)}
+            ref={btnRef}
             className="absolute top-5 left-5 cursor-pointer hover:text-blue-600 transition-all duration-300"
           >
             {" "}
