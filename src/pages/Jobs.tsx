@@ -7,7 +7,7 @@ const Home = () => {
   const { data } = useQuery(jobsQuery);
 
   const jobs = data?.map((job: Job) => (
-          <li className="hover:text-blue-600 hover:translate-x-1 transition-all duration-300 my-2 bg-gray-300 rounded-md p-2 w-full text-center">
+          <li className="hover:text-blue-600 hover:translate-x-1 transition-all duration-300 my-2 bg-linear-to-r to-blue-400 rounded-md p-2 w-full text-center">
             <Link to={`/jobs/${job._id}`} key={job.title}>
               {job.title}
             </Link>
