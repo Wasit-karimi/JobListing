@@ -61,7 +61,7 @@ const Navbar = () => {
       </nav>
 
       {/* mobile nav */}
-      <nav className="md:hidden relative h-18 flex justify-between px-5 border-b border-gray-300 shadow-md shadow-blue-200">
+      <nav className="md:hidden w-full relative h-18 flex justify-between px-5 border-b border-gray-300 shadow-md shadow-blue-200">
         {" "}
         <a href="#" className="flex">
           <img src="/logo.svg" alt="logo" className="w-37" />
@@ -75,13 +75,13 @@ const Navbar = () => {
         </button>
         <ul
           className={cn(
-            "bg-blue-300 fixed top-0 w-full h-screen flex flex-col justify-center items-center gap-5 transition-all duration-500",
-            isOpen ? "left-0" : "left-195",
+            "bg-blue-300 fixed top-0 -right-52 w-52 h-screen flex flex-col justify-center items-center gap-5 transition-all duration-500",
+            isOpen ? "right-0" : "-right-52" 
           )}
         >
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="absolute top-5 right-5 cursor-pointer hover:text-blue-600 transition-all duration-300"
+            className="absolute top-5 left-5 cursor-pointer hover:text-blue-600 transition-all duration-300"
           >
             {" "}
             <IoMdClose size={24} />{" "}
