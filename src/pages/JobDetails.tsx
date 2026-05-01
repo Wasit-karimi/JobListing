@@ -5,6 +5,7 @@ const JobDetails = () => {
   const navigate = useNavigate();
 
   const job = useLoaderData();
+  console.log(job); 
 
   if (!job) return <NotFound />;
 
@@ -12,8 +13,8 @@ const JobDetails = () => {
     <div className="w-full lg:w-[50%] md:w-[90%] shadow-md hover:shadow-lg hover:shadow-blue-300 transition-all duration-300 rounded-md cursor-pointer ">
       <div className="px-3 py-1 border border-gray-300 hover:border-blue-300 transition-all duration-300 rounded-md">
         <h1 className="font-bold text-lg mx-auto text-center my-2">{job.title}</h1>
-        <p className="text-justify">{job.descriptionBreakdown.oneSentenceJobSummary}</p>
-        <p className="my-1">
+        {/* <p className="text-justify">{job.descriptionBreakdown.oneSentenceJobSummary}</p> */}
+        {/* <p className="my-1">
           <strong>Type : </strong>
           {job.descriptionBreakdown.employmentType}
         </p>
@@ -25,7 +26,7 @@ const JobDetails = () => {
           <strong>Salary : </strong> $
           {job.descriptionBreakdown.salaryRangeMinYearly} - $
           {job.descriptionBreakdown.salaryRangeMaxYearly} per year
-        </p>
+        </p> */}
         <p className="mb-1">
           <strong>Location : </strong>
           {job.locationAddress}
