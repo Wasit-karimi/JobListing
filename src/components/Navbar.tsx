@@ -103,7 +103,7 @@ const Navbar = () => {
           )}
         >
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={(prev) => setIsOpen(!prev)}
             ref={btnRef}
             className="absolute top-5 left-5 cursor-pointer hover:text-blue-600 transition-all duration-300"
           >
