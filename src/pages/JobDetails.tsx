@@ -33,11 +33,15 @@ const JobDetails = () => {
             {job.descriptionBreakdown.workModel}
           </p>
         )}
-        <p className="my-1">
-          <strong>Salary : </strong> $
-          {job.descriptionBreakdown.salaryRangeMinYearly} - $
-          {job.descriptionBreakdown.salaryRangeMaxYearly} per year
-        </p>
+
+        {job.descriptionBreakdown.salaryRangeMinYearly &&
+          job.descriptionBreakdown.salaryRangeMaxYearly && (
+            <p className="my-1">
+              <strong>Salary : </strong> $
+              {job.descriptionBreakdown.salaryRangeMinYearly} - $
+              {job.descriptionBreakdown.salaryRangeMaxYearly} per year
+            </p>
+          )}
         <p className="mb-1">
           <strong>Location : </strong>
           {job.locationAddress}
