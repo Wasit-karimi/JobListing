@@ -16,34 +16,7 @@ const JobDetails = () => {
         <h1 className="font-bold text-lg mx-auto text-center my-2">
           {job.title}
         </h1>
-        {/* 
-        {job.descriptionBreakdown.oneSentenceJobSummary && (
-          <p className="text-justify">
-            {job.descriptionBreakdown.oneSentenceJobSummary}
-          </p>
-        )}
-        {job.descriptionBreakdown.employmentType && (
-          <p className="my-1">
-            <strong>Type : </strong>
-            {job.descriptionBreakdown.employmentType}
-          </p>
-        )}
-        {job.descriptionBreakdown.workModel && (
-          <p>
-            <strong>Work Model : </strong>
-            {job.descriptionBreakdown.workModel}
-          </p>
-        )}
-
-        {job.descriptionBreakdown.salaryRangeMinYearly &&
-          job.descriptionBreakdown.salaryRangeMaxYearly && (
-            <p className="my-1">
-              <strong>Salary : </strong> $
-              {job.descriptionBreakdown.salaryRangeMinYearly} - $
-              {job.descriptionBreakdown.salaryRangeMaxYearly} per year
-            </p>
-          )} */}
-
+       
         {job.owner.companyName && job.owner.photo && (
           <div className="w-full flex flex-col md:flex-row justify-center items-center max-auto my-2">
             <div className="w-1/2 flex justify-center">
