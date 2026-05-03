@@ -42,10 +42,13 @@ const JobDetails = () => {
               {job.descriptionBreakdown.salaryRangeMaxYearly} per year
             </p>
           )}
-        <p className="mb-1">
-          <strong>Location : </strong>
-          {job.locationAddress}
-        </p>
+
+        {job.locationAddress && (
+          <p className="mb-1">
+            <strong>Location : </strong>
+            {job.locationAddress}
+          </p>
+        )}
         <div className="w-full flex justify-center gap-3 my-2">
           <button className="btn-primary">
             <a href={job.url} target="_blank">
