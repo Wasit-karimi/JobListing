@@ -50,11 +50,13 @@ const JobDetails = () => {
           </p>
         )}
         <div className="w-full flex justify-center gap-3 my-2">
-          <button className="btn-primary">
-            <a href={job.url} target="_blank">
-              Page
-            </a>
-          </button>
+          {job.url && (
+            <button className="btn-primary">
+              <a href={job.url} target="_blank">
+                Page
+              </a>
+            </button>
+          )}
           <button onClick={() => navigate("/jobs")} className="btn-primary">
             Jobs
           </button>
