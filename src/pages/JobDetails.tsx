@@ -51,7 +51,7 @@ const JobDetails = () => {
           {job.url && (
             <button className="btn-primary">
               <a href={job.url} target="_blank">
-                Page
+                Source
               </a>
             </button>
           )}
