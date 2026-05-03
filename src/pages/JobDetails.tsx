@@ -21,10 +21,12 @@ const JobDetails = () => {
             {job.descriptionBreakdown.oneSentenceJobSummary}
           </p>
         )}
-        <p className="my-1">
-          <strong>Type : </strong>
-          {job.descriptionBreakdown.employmentType}
-        </p>
+        {job.descriptionBreakdown.employmentType && (
+          <p className="my-1">
+            <strong>Type : </strong>
+            {job.descriptionBreakdown.employmentType}
+          </p>
+        )}
         <p>
           <strong>Work Model : </strong>
           {job.descriptionBreakdown.workModel}
