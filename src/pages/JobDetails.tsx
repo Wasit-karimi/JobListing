@@ -27,10 +27,12 @@ const JobDetails = () => {
             {job.descriptionBreakdown.employmentType}
           </p>
         )}
-        <p>
-          <strong>Work Model : </strong>
-          {job.descriptionBreakdown.workModel}
-        </p>
+        {job.descriptionBreakdown.workModel && (
+          <p>
+            <strong>Work Model : </strong>
+            {job.descriptionBreakdown.workModel}
+          </p>
+        )}
         <p className="my-1">
           <strong>Salary : </strong> $
           {job.descriptionBreakdown.salaryRangeMinYearly} - $
