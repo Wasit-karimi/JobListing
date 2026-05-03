@@ -59,6 +59,15 @@ const JobDetails = () => {
           </div>
         )}
 
+        {job.type && (
+          <p className="mb-1">
+            <strong>Type : </strong>
+            {job.type}
+          </p>
+        )}
+
+        
+
         {job.locationAddress && (
           <p className="mb-1">
             <strong>Location : </strong>
