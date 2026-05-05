@@ -9,38 +9,34 @@ import { queryClient } from "../lib/queryClient";
 import { jobLoader } from "./jobLoader";
 import { jobsLoader } from "./jobsLoader";
 
-export const router =  createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout />,
-      errorElement: <NotFound />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-          errorElement: <NotFound />
-        },
-        {
-          path: "jobs",
-          element: <Jobs />,
-          loader: jobsLoader(queryClient),
-          errorElement: <NotFound />
-        },
-        {
-          path: "jobs/:id",
-          element: <JobDetails />,
-          loader: jobLoader(queryClient),
-          errorElement: <NotFound />
-        },
-        {
-          path: "about",
-          element: <About />,
-          errorElement: <NotFound />
-        },
-        
-      ],
-    },
-  ]);
- 
-
-  
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        errorElement: <NotFound />,
+      },
+      {
+        path: "jobs",
+        element: <Jobs />,
+        loader: jobsLoader(queryClient),
+        errorElement: <NotFound />,
+      },
+      {
+        path: "jobs/:id",
+        element: <JobDetails />,
+        loader: jobLoader(queryClient),
+        errorElement: <NotFound />,
+      },
+      {
+        path: "about",
+        element: <About />,
+        errorElement: <NotFound />,
+      },
+    ],
+  },
+]);
