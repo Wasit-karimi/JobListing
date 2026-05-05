@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import type { Job } from "../types/types";
 
 const Home = () => {
-  const { data, isLoading } = useQuery(jobsQuery);
+  const { data } = useQuery(jobsQuery);
 
   
-  if (isLoading) return <div>Loading...</div>;
+
 
   const jobs = data?.map((job: Job) => (
     <li
