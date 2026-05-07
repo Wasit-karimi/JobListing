@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         path: "jobs",
         element: <Jobs />,
         loader: jobsLoader(queryClient),
-        HydrateFallback: JobsSkeleton,
+        hydrateFallbackElement: <JobsSkeleton />,
         errorElement: <NotFound />,
       },
       {
