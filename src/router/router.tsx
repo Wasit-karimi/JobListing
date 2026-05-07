@@ -8,7 +8,6 @@ import About from "../pages/About";
 import { queryClient } from "../lib/queryClient";
 import { jobLoader } from "./jobLoader";
 import { jobsLoader } from "./jobsLoader";
-import JobsSkeleton from "../components/JobsSkeleton";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +24,6 @@ export const router = createBrowserRouter([
         path: "jobs",
         element: <Jobs />,
         loader: jobsLoader(queryClient),
-        hydrateFallbackElement: <JobsSkeleton />,
         errorElement: <NotFound />,
       },
       {
