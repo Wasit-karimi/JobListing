@@ -5,11 +5,9 @@ import type { Job } from "../types/types";
 
 const Home = () => {
   const navigate = useNavigate()
-  const { data, isLoading } = useQuery(jobsQuery);
+  const { data} = useQuery(jobsQuery);
 
-  if(isLoading) return <div className="w-full h-full bg-white flex justify-center items-center">
-    <h1>loading...</h1>
-  </div>
+  
   
 
 
