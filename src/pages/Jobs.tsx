@@ -1,11 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { jobsQuery } from "../api/jobs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { Job } from "../types/types";
 
 const Home = () => {
-  const { data } = useQuery(jobsQuery);
+  const navigate = useNavigate()
+  const { data, isLoading } = useQuery(jobsQuery);
 
+  if(isLoading) return <div className="w-full h-full bg-white flex justify-center items-center">
+    <h1>loading...</h1>
+  </div>
   
 
 
@@ -28,9 +32,9 @@ const Home = () => {
           jobs
         </h1>
 
-        <p className="my-4 border-b border-gray-400 pb-2">
-          Explore our list of jobs
-        </p>
+        <div className="my-4 border-b border-gray-400 pb-2 flex justify-between items-center gap-2">
+          <h2 className="text-center text-xl font-bold">Latest Jobs</h2> <button className="btn-primary" onClick={() => navigate("/")}> Home </button>
+        </div>
 
         <ul className="list-decimal my-5">{jobs}</ul>
       </div>
