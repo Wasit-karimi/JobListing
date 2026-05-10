@@ -2,14 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { jobsQuery } from "../api/jobs";
 import { Link, useNavigate } from "react-router-dom";
 import type { Job } from "../types/types";
+import JobsSkeleton from "../components/JobsSkeleton";
 
 const Home = () => {
-  const navigate = useNavigate()
-  const { data} = useQuery(jobsQuery);
+  const navigate = useNavigate();
+  const { data, isLoading } = useQuery(jobsQuery);
 
-  
-  
-
+  if(isLoading) return <JobsSkeleton />
 
   const jobs = data?.map((job: Job) => (
     <li
@@ -22,7 +21,6 @@ const Home = () => {
     </li>
   ));
 
-
   return (
     <section className="w-full">
       <div className="px-3 md:mx-auto md:w-[80%]">
@@ -31,7 +29,11 @@ const Home = () => {
         </h1>
 
         <div className="my-4 border-b border-gray-400 pb-2 flex justify-between items-center gap-2">
-          <h2 className="text-center text-xl font-bold">Latest Jobs</h2> <button className="btn-primary" onClick={() => navigate("/")}> Home </button>
+          <h2 className="text-center text-xl font-bold">Latest Jobs</h2>{" "}
+          <button className="btn-primary" onClick={() => navigate("/")}>
+            {" "}
+            Home{" "}
+          </button>
         </div>
 
         <ul className="list-decimal my-5">{jobs}</ul>
